@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/src/style.css" />
+    <title>Benchmark</title>
+  </head>
+  <body>
+    <h1>Rendimiento</h1>
+    <main class="container">
+      <section class="left">
+        <h2>Global</h2>
+        <textarea id="global" class="code" rows="1">const data = [...Array(1000).keys()]</textarea>
+  
+        <h2>Test cases</h2>
+        <div class="test-cases">
+          <article>
+            <header>
+              <span class="test-id">1</span>
+              <span class="ops">4 ops/s</span>
+            </header>
+  
+            <textarea class="code" rows="1">data.find(x => x === 100)</textarea>
+          </article>
+
+          <article>
+            <header>
+              <span class="test-id">2</span>
+              <span class="ops">4 ops/s</span>
+            </header>
+  
+            <textarea class="code" rows="1">data.find(x => x === 300)</textarea>
+          </article>
+
+          <article>
+            <header>
+              <span class="test-id">3</span>
+              <span class="ops">4 ops/s</span>
+            </header>
+  
+            <textarea class="code" rows="1">data.find(x => x === 500)</textarea>
+          </article>
+        </div>
+
+        <button class="send-btn">Benchmark code 🚀</button>
+      </section>
+
+      <section class="right">
+        
+      </section>
+
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+  outline: none;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  width: 100%;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1300px;
+  width: 100%;
+
+  section {
+    padding: 15px;
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 50%;
+
+  h2 {
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+    opacity: 0.5;
+    font-weight: 500;
+  }
+}
+
+.code {
+  background-color: #141414;
+  border-radius: 6px;
+  border: 0;
+  color: #d4d4d4;
+  padding: 8px;
+  resize: none;
+  width: 100%;
+  field-sizing: content;
+}
+
+.test-cases {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+  
+  article {
+    background-color: #2a2a2a;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 8px;
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 6px;
+    justify-content: space-between;
+  }
+
+  .test-id {
+    border-radius: 50%;
+    background-color: #141414;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.send-btn {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: grey;
+  padding: 4px 15px;
+  margin: 0 auto;
+  transition: background 0.3s ease;
+  &:hover {
+    background-color: #aaa;
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 50%;
+}
