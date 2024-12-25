@@ -1,33 +1,17 @@
 const globalCode = document.querySelector('#global')
 const sendButton = document.querySelector('.send-btn')
 
+
+
 async function runTest({ code, data }) {
-  const duration = 1000
+  const worker = new Worker(new URL('./worker.js', import.meta.url))
+  worker.postMessage({ code, data, duration: 1000 })
 
-  let result
-
-  try {
-    result = await eval(`
-      (async () => {
-        let perf__ops = 0;
-        const perf__end = Date.now() + ${duration};
-        ${data};
-
-        while (Date.now() < perf__end) {
-          ${code};
-          perf__ops++;
-        }
-
-        return perf__ops
-      })()
-    `)
-  } catch (error) {
-    console.error(error)
-    result = 0
-  }
-
-  return result * (1000 / duration)
-
+  return new Promise(resolve => {
+    worker.onmessage = event => {
+      resolve(event.data)
+    }
+  })
 }
 
 
@@ -44,7 +28,8 @@ async function runTestCases() {
     ops.textContent = 'Loading...'
 
     const result = await runTest({ code: codeValue, data: codeGlobal })
-    console.log(result)
+    
+    ops.textContent = `${result.toLocaleString()} ops/s`
 
   })
 }
